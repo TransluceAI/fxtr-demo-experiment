@@ -1,4 +1,4 @@
-"""Measure fxtr throughput with simulated generation and live severity tiebreakers."""
+"""Run the two-model, two-rubric hostility judging experiment."""
 
 import argparse
 import os
@@ -25,7 +25,7 @@ MODELS = (PRIMARY_MODEL, SECOND_MODEL)
 async def report_overlap(
     client: LocalProjectClient, job_id: JobID, messages: int, ties: int
 ) -> None:
-    """Measure overlap at both dependencies using successful attempts from this job."""
+    """Report when primary and tiebreaker steps started relative to their inputs."""
     query = text("""
     WITH runs AS (
         SELECT n.name, s.key, a.started_at, a.finished_at

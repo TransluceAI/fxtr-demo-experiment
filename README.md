@@ -1,8 +1,8 @@
 # fxtr demo experiment
 
-Measure whether fxtr starts judging a message while others are being generated. One judge step
-runs GPT-6 Luna and GPT-5.6 Luna against two hostility rubrics. A disagreement within a rubric
-triggers a blind tiebreaker. The demo generates its own chat data and includes both rubrics.
+This fxtr experiment generates group chat messages and rates their hostility. GPT-6 Luna and
+GPT-5.6 Luna each apply two rubrics to every message. If the models assign different severity
+labels under the same rubric, GPT-6 Luna rates that message again.
 [Experiment design](EXPERIMENT.md)
 
 ## Run locally
@@ -42,8 +42,8 @@ the four primary judgments for each message, and any tiebreakers. To run a large
 uv run python launch.py --messages 256 --concurrency 128
 ```
 
-The launcher prints token usage, throughput, and how many downstream steps started before the
-preceding stage finished. It chooses a fresh cache root each time. Repeat the same inputs with
-`--root <previous-root>` to reuse results. Cold-run overlap requires fresh step attempts.
+The launcher prints judgment counts, token usage, and timings. Each run uses a fresh cache root
+by default. To reuse results, repeat the same inputs with `--root <previous-root>`.
+
 fxtr pins a Git commit for each job. After local edits, commit them or stage them and pass
 `--allow-staged`.

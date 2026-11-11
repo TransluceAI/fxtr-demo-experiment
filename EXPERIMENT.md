@@ -1,10 +1,9 @@
-# Can fxtr pipeline generation, judging and tiebreaking?
+# Hostility ratings for generated chat messages
 
 Each seeded chat message has two to five sentences after its opening, plus up to five earlier posts
 from the same room. The generator chooses a borderline closing remark with probability 75%, an
 overt insult with probability 12.5%, and an ordinary update otherwise. The borderline replies
-use sarcasm, terse reminders and criticism framed as a question to exercise adjacent severity
-labels. These proportions describe the input templates. Judges assign the labels.
+include sarcasm, terse reminders and criticism phrased as a question.
 
 The producer calculates a base delay of one second per 200 characters of
 current message text. It multiplies that delay by a uniform random factor between 0.8 and 1.2,
@@ -25,6 +24,4 @@ two match or the middle severity when all three differ. A missing required sever
 message/rubric pair unresolved. The summary links to the final severity for each message and rubric.
 
 For N messages and D disputed message/rubric pairs, the job requests 4N + D live judgments before
-retries. D ranges from zero to 2N. On a fresh run the launcher reports how many pairs started both
-primary judges before the last generation finished, and how many tiebreakers started before the last
-primary finished. Throughput includes simulated generation, provider latency and fxtr overhead.
+retries. D ranges from zero to 2N.

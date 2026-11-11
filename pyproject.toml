@@ -1,7 +1,7 @@
 [project]
 name = "fxtr-demo-experiment"
 version = "0.1.0"
-description = "A message judging benchmark for fxtr"
+description = "An fxtr experiment that rates generated chat messages for hostility"
 requires-python = ">=3.13"
 dependencies = [
     "anyio",
