@@ -1,0 +1,10 @@
+.env
+.env.*
+.venv/
+.fxtr/
+fxtr.local.toml
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+dist/
